@@ -13,21 +13,30 @@ CREATE TABLE
 CREATE TABLE
     posts (
         id TEXT PRIMARY KEY UNIQUE NOT NULL,
-        creator_id TEXT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+        creator_id TEXT UNIQUE NOT NULL,
         content TEXT NOT NULL,
-        likes INTEGER NOT NULL,
-        dislikes INTEGER NOT NULL,
+        likes INTEGER DEFAULT (0) NOT NULL,
+        dislikes INTEGER DEFAULT (0) NOT NULL,
         created_at TEXT DEFAULT (DATETIME('now', 'localtime')) NOT NULL,
-        updated_at TEXT DEFAULT (DATETIME('now', 'localtime')) NOT NULL
+        updated_at TEXT DEFAULT (DATETIME('now', 'localtime')) NOT NULL,
+        FOREIGN KEY (creator_id) REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE
     );
 
-    CREATE TABLE
+CREATE TABLE
     likes_dislikes (
-        user_id TEXT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-        post_id TEXT NOT NULL REFERENCES posts (id) ON DELETE CASCADE,
-        like INTEGER NOT NULL 
+        user_id TEXT NOT NULL REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        post_id TEXT NOT NULL REFERENCES posts (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        like INTEGER NOT NULL
     );
 
-    SELECT * FROM users;
-    SELECT * FROM posts;
-    SELECT * FROM likes_dislikes;
+SELECT * FROM users;
+
+SELECT * FROM posts;
+
+SELECT * FROM likes_dislikes;
+
+DROP TABLE users;
+
+DROP TABLE posts;
+
+DROP TABLE likes_dislikes;
