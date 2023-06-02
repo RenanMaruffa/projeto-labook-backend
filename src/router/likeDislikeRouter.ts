@@ -1,14 +1,14 @@
-import express from "express";
-import { LikeDislikeDatabase } from "../database/LikeDislikeDatabase";
+// import express from "express";
+// import { LikeDislikeDatabase } from "../database/LikeDislikeDatabase";
 
-const likeDislikeRouter = express.Router();
+// const likeDislikeRouter = express.Router();
 
-const likeDislikeController = new LikeDislikeController(new LikeDislikeBusiness(new LikeDislikeDatabase()));
+// const likeDislikeController = new LikeDislikeController(new LikeDislikeBusiness(new LikeDislikeDatabase()));
 
-likeDislikeRouter.post("/", likeDislikeController.createLikes);
-likeDislikeRouter.get("/", likeDislikeController.getLikes);
-likeDislikeRouter.put("/", likeDislikeController.updateLikes);
-likeDislikeRouter.delete("/", likeDislikeController.deleteLikes);
+// likeDislikeRouter.post("/", likeDislikeController.createLikes);
+// likeDislikeRouter.get("/", likeDislikeController.getLikes);
+// likeDislikeRouter.put("/", likeDislikeController.updateLikes);
+// likeDislikeRouter.delete("/", likeDislikeController.deleteLikes);
 
 
-export default likeDislikeRouter;
+// export default likeDislikeRouter;
