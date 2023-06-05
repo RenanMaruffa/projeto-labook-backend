@@ -1,8 +1,8 @@
 import { UserDB, UserModel } from "../types/interface"
 
 export enum USER_ROLES {
-    NORMAL = "NORMAL",
-    ADMIN = "ADMIN"
+    NORMAL = 'NORMAL',
+    ADMIN = 'ADMIN'
 }
 
 export interface TokenPayload {

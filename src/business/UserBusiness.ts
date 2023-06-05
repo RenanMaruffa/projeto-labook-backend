@@ -93,32 +93,6 @@ export class UserBusiness {
         return output
     };
 
-    // public createUsers = async (input: CreateUserInputDTO) => {
-    //     const { id, name, email, password, USER_ROLES, created_at } = input;
-
-    //     const userExistDB: UserDB | undefined = await this.userDatabase.findUserById(id)
-
-    //     if (userExistDB) {
-    //         throw new Error("Usuario já existente")
-    //     }
-
-    //     //agora aqui embaixo, decorar: fazer instanciamento e crio a variavel para o banco de dados! Não posso enviar newUser (instanciado por new User)
-    //     const newUser = new User(id, name, email, password, USER_ROLES, created_at)
-
-    //     const newUserDB = {
-    //         id: newUser.getId(),
-    //         name: newUser.getName(),
-    //         email: newUser.getEmail(),
-    //         password: newUser.getPassword(),
-    //         role: newUser.getRole(),
-    //         created_at: newUser.getCreatedAt()
-    //     };
-
-    //     const output = await this.userDatabase.insertNewUser(newUserDB);
-    //     return output
-    // };
-
-
     public getUsers = async (input: GetUserDTO) => {
         const { q } = input;
 

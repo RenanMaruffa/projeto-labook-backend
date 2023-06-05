@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
-// app.use("/likeDislike", likeDislikeRouter);
+
 
 app.get("/ping",  (req, res) =>{
     res.send("Pong!")
