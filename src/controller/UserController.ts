@@ -45,7 +45,7 @@ export class UserController {
 
             const output = await this.userBusiness.login(input)
             res.status(200).send(output)
-            
+
         } catch (error) {
             console.log(error);
             if (error instanceof ZodError) {
@@ -57,32 +57,6 @@ export class UserController {
             };
         };
     };
-
-    // public createUsers = async (req: Request, res: Response): Promise<void> => {
-    //     try {
-    //         const input = CreateUserSchema.parse({
-    //             id: req.body.id,
-    //             name: req.body.name,
-    //             email: req.body.email,
-    //             password: req.body.password,
-    //             role: req.body.role,
-    //             created_at: req.body.created_at
-    //         });
-
-    //         const output = await this.userBusiness.createUsers(input);
-    //         res.status(201).send(output)
-
-    //     } catch (error) {
-    //         console.log(error);
-    //         if (error instanceof ZodError) {
-    //             res.status(400).send(error.issues)
-    //         } else if (error instanceof BaseError) {
-    //             res.status(error.statusCode).send(error.message)
-    //         } else {
-    //             res.status(500).send("Erro Inesperado!")
-    //         }
-    //     }
-    // };
 
     public getUsers = async (req: Request, res: Response): Promise<void> => {
         try {
@@ -98,6 +72,15 @@ export class UserController {
 
     };
 
+
+
+
+
+
+
+
+
+    
     public updateUsers = async (req: Request, res: Response): Promise<void> => {
         try {
             res.status(201).send()

@@ -1,18 +1,6 @@
 import { PostDB, PostModel } from "../types/interface"
 
 
-// export class Posts {
-//     constructor(
-//         private id: string,
-//         private creator_id: string,
-//         private content: string,
-//         private likes: string,
-//         private dislikes: string,
-//         private created_at: string,
-//         private updated_at: string
-//     ) { };
-
-
 export class Posts {
     constructor(
         private id: string,
@@ -33,17 +21,42 @@ export class Posts {
         return this.content
     };
 
-    public setContent(newContent: string): void {
-        this.content = newContent
+    public setContent(value: string): void {
+        this.content = value
     };
 
     public getLikes(): number {
         return this.likes
     };
 
+    public setLikes(value: number): void {
+        this.likes = value
+    };
+
+    public addLike = (): void => {
+        this.likes++
+        // ++ = this.likes + 1
+    };
+
+    public addDislike = (): void => {
+        this.dislikes++
+    };
+
+    public removeDislike = (): void => {
+        this.dislikes--
+    };
+
+    public removeLike = (): void => {
+        this.likes--
+    };
+
     public getDislikes(): number {
         return this.dislikes
     };
+
+    public setDislikes(value: number): void {
+        this.dislikes = value
+    }
 
     public getCreatedAt(): string {
         return this.createdAt
@@ -57,16 +70,16 @@ export class Posts {
         return this.creatorId
     };
 
-    public setCreatorId(newCreatorId: string): void {
-        this.creatorId = newCreatorId
+    public setCreatorId(value: string): void {
+        this.creatorId = value
     };
 
     public getCreatorName(): string {
         return this.creatorName
     };
 
-    public setCreatorName(newCreatorName: string): void {
-        this.creatorName = newCreatorName
+    public setCreatorName(value: string): void {
+        this.creatorName = value
     };
 
     public toDBModel(): PostDB {
@@ -90,7 +103,7 @@ export class Posts {
             createdAt: this.createdAt,
             updatedAt: this.updatedAt,
             creator: {
-                id: this.id,
+                id: this.creatorId,
                 name: this.creatorName
             }
         };
